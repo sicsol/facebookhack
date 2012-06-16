@@ -5,7 +5,13 @@ $query = mysql_query("SELECT * FROM causes ORDER BY name");
 
 <!DOCTYPE html>
 <html>
-	<head>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# giver_fb: http://ogp.me/ns/fb/giver_fb#">
+		<meta property="fb:app_id" content="244733612303557" /> 
+		<meta property="og:type"   content="giver_fb:friend" /> 
+		<meta property="og:url"    content="http://hack.am-dv.com/desktop/fundraise.php?user=4" /> 
+		<meta property="og:title"  content="Sample Friend" /> 
+		<meta property="og:image"  content="https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png" /> 
+		<meta property="giver_fb:cause" content="http://hack.am-dv.com/desktop/cause.php"/>
 		<? include('includes/title.php'); ?>
 	</head>
 	<body>

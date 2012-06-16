@@ -1,24 +1,25 @@
-		<div id="fb-root"></div>
-		<script>
-		  window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : '244733612303557', // App ID
-		      status     : true, // check login status
-		      cookie     : true, // enable cookies to allow the server to access the session
-		      xfbml      : true  // parse XFBML
-		    });
+	<div id="fb-root"></div>
+	<script src="//connect.facebook.net/en_US/all.js"></script>
+	<script>
+	  FB.init({
+	    appId      : '244733612303557',
+	    status     : true, // check login status
+	    cookie     : true, // enable cookies to allow the server to access the session
+	    xfbml      : true  // parse XFBML
+	  });
+  
+	FB.getLoginStatus(function(response) {
+		windowLocation = new String( window.location.href );
+		if (response.status === 'connected') {
+			push_donation_to_facebook()
 
-    		// Additional initialization code here
-		  };
-		  // Load the SDK Asynchronously
-		  (function(d){
-		     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement('script'); js.id = id; js.async = true;
-		     js.src = "//connect.facebook.net/en_US/all.js";
-		     ref.parentNode.insertBefore(js, ref);
-		   }(document));
-		</script>
+		}
+		else if (response.status !== 'connected' && windowLocation.indexOf('login') == -1) {
+			window.location.href = 'login.php'
+    	} 
+	});  
+	</script>		
+		
 		<header>
 			<img src="assets/images/logo.jpg">
 		</header>
