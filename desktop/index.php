@@ -14,21 +14,52 @@ if( isset($_POST['charity']) ) {
 		$_POST['charity']  == NULL || 
 		!is_numeric($_POST['charity']) || 
 		$_POST['charity'] == 0 
-	) $error++;
+	) {
+		 $charityErr = "Please select a charity";
+		 $error++;
+	}
 	
 	if( 
 		empty($_POST['goal']) || 
 		$_POST['goal'] == "" || 
 		$_POST['goal']  == NULL 
-	) $error++;
+	) {
+		 $goalErr = "Please enter your goal amount";
+		 $error++;
+	}
 	
 	if( empty(
-		$_POST['date']) || 
-		$_POST['date'] == "" || 
-		$_POST['date']  == NULL 
-	) $error++;
+		$_POST['about']) || 
+		$_POST['about'] == "" || 
+		$_POST['about']  == NULL 
+	) {
+		 $aboutErr = "Please enter about text";
+		 $error++;
+	}
 	
-	if( $error > 0 ) echo "error";
+	if( $error == 0 ) {
+		
+		$charity 	= mysql_escape_string($_POST['charity']);
+		$goal		= mysql_escape_string( str_replace(",", "", $_POST['goal'] ));
+		$about		= mysql_escape_string($_POST['about']);
+		
+		mysql_query(
+			"INSERT INTO fundraisers 
+			( fbid, first_name, last_name, email, event, goal, about) 
+			VALUES 
+			( '".$fbid."', '".$firstname."', '".$lastname."', '".$email."', '".$charity."', '".$goal."', '".$about."' )"
+		);
+		
+		$id = mysql_insert_id();
+		
+		if( empty($id) ) {
+			echo mysql_error(); exit;
+		} else {
+			header("Location: fundraise.php?id=".$id);
+		}
+		
+	}
+	
 }
 
 ?>
@@ -52,26 +83,39 @@ if( isset($_POST['charity']) ) {
 				
 				<div class="row">
 					Charity <select name="charity">
-						<option value="0">Select a Charity</option>
+						<option value="0" <? if($_POST['charity'] == "" || $_POST['charity'] == 0 ) echo 'selected="selected"'; ?>>Select a Charity</option>
 						<?
 							$i = 0;
 							while( $i < mysql_num_rows($query) )
 							{
-								echo '<option value="'.mysql_result($query, $i, "id").'">'.mysql_result($query, $i, "name").'</option>';
+								echo '<option value="'.mysql_result($query, $i, "id").'"';
+								if( $_POST['charity'] == mysql_result($query,$i,"id") ) {
+									echo ' selected="selected"';
+								}
+								echo '>'.mysql_result($query, $i, "name").'</option>';
 								$i++;
 							}
 						?>
 					</select>
+					<? if( isset($charityErr) ) : ?>
+					<div class="error"><?= $charityErr; ?></div>
+					<? endif; ?>
 				</div>
 
 				<div class="row">
 					<label>Goal</label>
-					<input type="text" name="goal">
+					<input type="text" name="goal" value="<?= $_POST['goal']; ?>">
+					<? if( isset($goalErr) ) : ?>
+					<div class="error"><?= $goalErr; ?></div>
+					<? endif; ?>
 				</div>
 
 				<div class="row">
-					<label>End Date</label>
-					<input type="text" name="date">
+					<label>About</label>
+					<textarea name="about" rows="3" cols="40"><?= $_POST['about']; ?></textarea>
+					<? if( isset($aboutErr) ) : ?>
+					<div class="error"><?= $aboutErr; ?></div>
+					<? endif; ?>
 				</div>
 
 				<button type="submit">Save</button>
