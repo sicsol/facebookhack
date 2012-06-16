@@ -13,16 +13,22 @@
 			
 			<form action="" method="post">
 				
-				Charity <select name="">
-					<option value="">Select a Charity</option>
-				</select>
-				
-				<label>Goal</label>
-				<input type="text" name="goal">
-				
-				<label>End Date</label>
-				<input type="text" name="date">
-				
+				<div class="row">
+					Charity <select name="">
+						<option value="">Select a Charity</option>
+					</select>
+				</div>
+
+				<div class="row">
+					<label>Goal</label>
+					<input type="text" name="goal">
+				</div>
+
+				<div class="row">
+					<label>End Date</label>
+					<input type="text" name="date">
+				</div>
+
 				<button type="submit">Save</button>
 				
 			</form>

@@ -8,12 +8,14 @@
 		<? include('includes/header.php'); ?>
 		
 		<div class="container">
-			<img src="http://placehold.it/50x50">
-			<strong>Facebook Name</strong>
-			
-			<h1>Charity Name</h1>
-			<h2>Goal: XXXXXXX</h2>
-			<h3>Raised: XXXXX</h3>
+			<article>
+				<img src="http://placehold.it/50x50">
+				<strong>Facebook Name</strong>
+				
+				<h1>Charity Name</h1>
+				<h2>Goal: XXXXXXX</h2>
+				<h3>Raised: XXXXX</h3>
+			</article>
 			
 			<div class="">
 				<h3>Recent Pledges</h3>
