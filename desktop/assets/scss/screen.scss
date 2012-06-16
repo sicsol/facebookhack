@@ -4,16 +4,30 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "mixins";
+
+html {
+  height: 100%;
+}
 
 body {
-  font-family: Helvetica, Arial;
+  display: block;
+  font-family: 'Karla', sans-serif;
   font-size: 12px;
+  height: 100%;
+  @include gradient-vertical(#ebf3fa,#ffffff);
 }
 
 h1 { font-size: 34px; }
 h2 { font-size: 28px; }
 h3 { font-size: 22px; }
 h4 { font-size: 18px; }
+
+header {
+  display: block;
+  margin: 0 auto;
+  width: 960px;
+}
 
 .container {
   margin: 0 auto;

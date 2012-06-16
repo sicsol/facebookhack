@@ -20,5 +20,12 @@
 		   }(document));
 		</script>
 		<header>
-			<img src="assets/images/logo.jpg">
+			
+			<div class="logo">
+				<img src="assets/images/logo.jpg">
+			</div>
+			<div class="title">
+				<div class="user">Peter, welcome to Gvr</div>
+				<div class="slogan">Make your charity social! Promote, Raise, Post!</div>
+			</div>			
 		</header>
