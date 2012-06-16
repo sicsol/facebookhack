@@ -1,3 +1,8 @@
+<?
+include('includes/db.php');
+$query = mysql_query("SELECT * FROM causes ORDER BY name");
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,8 +14,8 @@
 		
 		<div class="container">
 			<article>
-				<img src="http://placehold.it/50x50">
-				<strong>Facebook Name</strong>
+				<img src="https://graph.facebook.com/<?= $fbid; ?>/picture">
+				<strong><?= $fullname; ?></strong>
 				
 				<h1>Charity Name</h1>
 				<h2>Goal: XXXXXXX</h2>

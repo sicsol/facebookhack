@@ -16,8 +16,8 @@
 			</article>
 
 			<article>
-				<img src="http://placehold.it/50x50">
-				<h2>Facebook Name of Raiser</h2>
+				<img src="https://graph.facebook.com/<?= $fbid; ?>/picture">
+				<strong><?= $fullname; ?></strong>
 			</article>			
 
 			<article>
