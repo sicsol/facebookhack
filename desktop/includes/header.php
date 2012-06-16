@@ -20,5 +20,5 @@
 		   }(document));
 		</script>
 		<header>
-			<img src="assets/images/logo.jpg"><h1>Gvr</h1>
+			<img src="assets/images/logo.jpg">
 		</header>
