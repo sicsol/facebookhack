@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/style.css"/>		
 		<title>Giver</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -25,21 +26,57 @@
 		      xfbml: true,
 		      oauth: true});
 		
-		      FB.Event.subscribe('auth.authResponseChange', handleResponseChange);  
+		      FB.Event.subscribe('auth.authResponseChange', function(){
+		      });  
 		    };
 		</script>
-		<article data-role="page">
-			<header data-role="header">
+		
+		<article id="home" data-role="page">
+			<header data-role="header" data-position="fixed">
 				<h1>Givr</h1>
 			</header>
-			<section data-role="content">
+			
+			<section id="welcome" data-role="content">
 				<h1>Welcome!</h1>
 				<button id="connect" data-role="button">Connect With Facebook</button>
 			</section>
-			<footer data-role="footer">
+			
+			<footer data-role="footer" data-position="fixed">
 				<h1>FB TO HACK'12</h1>
 			</footer>
 		</article>
+		
+		<article id="pledge" data-role="page">
+			<header data-role="header" data-position="fixed">
+				<h1>Gvr - Pledge</h1>
+			</header>
+
+			<section data-role="content">
+				<form id="fund">
+					<fieldset>
+						<label for="firstName">First name:</label>
+						<input id="firstName" name="firstName" type="text">
+					</fieldset>
+					<fieldset>
+						<label for="lastName">Last name:</label>
+						<input id="lastName" name="lastName" type="text">
+					</fieldset>
+					<fieldset>
+						<label for="email">Email address:</label>
+						<input id="email" name="email" type="text">
+					</fieldset>
+					<fieldset>
+						<label for="goal">Goal:</label>
+						<input style="width:100px;" id="goal" type="range" name="goal" value="0" min="0" max="1000000" />					
+					</fieldset>
+				</form>
+			</section>
+
+			<footer data-role="footer" data-position="fixed">
+				<h1>FB TO HACK'12</h1>
+			</footer>
+		</article>
+		
 	</body>
 </html>
 
