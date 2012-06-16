@@ -1,3 +1,3 @@
 		<header>
-			<h1>Logo</h1>
+			<img src="assets/images/logo.jpg"><h1>Gvr</h1>
 		</header>
