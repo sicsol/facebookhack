@@ -1,3 +1,7 @@
+<?
+include('includes/config.php');
+$query = mysql_query("SELECT * FROM causes ORDER BY name");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +20,14 @@
 				<div class="row">
 					Charity <select name="">
 						<option value="">Select a Charity</option>
+						<?
+							$i = 0;
+							while( $i < mysql_num_rows($query) )
+							{
+								echo '<option value="'.mysql_result($query, $i, "id").'">'.mysql_result($query, $i, "name").'</option>';
+								$i++;
+							}
+						?>
 					</select>
 				</div>
 
