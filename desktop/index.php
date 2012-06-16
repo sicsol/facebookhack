@@ -1,5 +1,5 @@
 <?
-include('includes/config.php');
+include('includes/db.php');
 $query = mysql_query("SELECT * FROM causes ORDER BY name");
 ?>
 <!DOCTYPE html>
